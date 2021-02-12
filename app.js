@@ -1,56 +1,29 @@
-const api = new API();
-const ui = new UI();
 
-// Load event listeners
-document.addEventListener("DOMContentLoaded", loadMoviesToLS);
+// const ui_module = require('./ui.js');
+const fs = require('fs');
+const express = require('express');
 
-document.querySelector("#searchCriteria").addEventListener("keyup", filterMovie);
+// const ui = new ui_module.UI();
 
-document.querySelector("#table-body").addEventListener("click", switchIcon);
+const app = express();
+
+app.set("view engine", "ejs");
 
 
+app.get('/', (req, res) => {
 
-function loadMoviesToUI(movies) {
 
-    movies = Array.from(movies);
+    let moviesJson = fs.readFileSync("movies.json");
 
-    
-    movies.forEach((movie) => {
+    moviesJson = JSON.parse(moviesJson);
 
-        ui.addMovie(movie);
-        
-    });
+    res.render('index', {movies: moviesJson});
 
-}
+    console.log(localStorage);
 
-function loadMoviesToLS(){
+});
 
-    api.get()
-        .then(data => {
-            let movies;
-            movies = data;
-            localStorage.setItem("movies", movies);
+app.post('the_trial_of_the_chicago_7', (req, res) => console.log("WORKED"));
 
-            loadMoviesToUI(movies);
-        })
-        .catch(err => console.log(err));
+app.listen(3000);
 
-}
-
-function filterMovie() {
-
-    const input = document.querySelector("#searchCriteria").value;
-    ui.filterMovie(input);
-}
-
-function switchIcon(e) {
-
-    if (e.target.classList.contains("icon")){
-
-        ui.switchIcon(e.target);
-
-    }
-
-    e.preventDefault();
-
-}

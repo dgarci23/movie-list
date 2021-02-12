@@ -11,7 +11,7 @@ data = []
 
 with open("movies.json", "a") as outfile:
 
-    for row in range(2, 343):
+    for row in range(2, 356):
 
         movie = {
             "title": movie_values["A" + str(row)].value,
