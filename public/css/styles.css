@@ -1,0 +1,19 @@
+/* .fa-check-square {
+    color: green;
+}
+
+.fa-square {
+    color: red;
+} */
+
+.icon {
+    height: 3px;
+}
+
+@media (max-width: 567px) {
+
+    .director, .year {
+        display: none;
+    }
+
+}

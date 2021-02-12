@@ -1,38 +1,30 @@
 class UI {
     constructor() {
         this.table = document.getElementById('table-body');
-
-        this.movieCount = 0;
     }
 
     addMovie(movie) {
 
         let iconClass;
         if (movie.watchDavid === false) {
-            iconClass = "fas fa-eye";
+            iconClass = "fas fa-lg fa-square";
         } else {
-            iconClass = "fas fa-eye-slash";
+            iconClass = "fas fa-lg fa-check-square";
         }
 
-        const tableBody = document.getElementById('table-body');
-
-        const row = `<tr id="${this.movieCount}">
+        const row = `<tr id="${movie.id}">
                         <td>${movie.title}</td>
-                        <td>${movie.director}</td>
-                        <td>${movie.year}</td>
+                        <td class="director">${movie.director}</td>
+                        <td class="year">${movie.year}</td>
                         <td>
-                            <a href="" id="watch-box-${this.movieCount}"><i class="${iconClass} icon"></i></a>
+                            <a href="#" id="watch-box-${movie.id}"><i class="${iconClass} icon"></i></a>
                         </td>
                     </tr>`;
         
-        tableBody.innerHTML += row;
-
-        this.movieCount += 1;
+        this.table.innerHTML += row;
     }
 
     filterMovie(search) {
-
-        let title;
 
         for (let i = 0; i < this.movieCount; i++){
 
@@ -44,7 +36,7 @@ class UI {
 
                 let movieTitle = movieRow.firstElementChild.textContent;
 
-                if (!movieTitle.startsWith(search)) {
+                if (!movieTitle.toLowerCase().startsWith(search.toLowerCase())) {
     
                     movieRow.classList.add("d-none");
     
@@ -66,14 +58,12 @@ class UI {
 
     switchIcon(icon) {
 
-        if(icon.classList.contains("fa-eye")) {
-            icon.classList.add("fa-eye-slash");
-            icon.classList.remove("fa-eye")
+        if(icon.classList.contains("fa-check-square")) {
+            icon.classList.add("fa-square");
+            icon.classList.remove("fa-check-square")
         } else {
-            icon.classList.add("fa-eye");
-            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-check-square");
+            icon.classList.remove("fa-square");
         }
     }
 }
-
-module.exports = {UI};
