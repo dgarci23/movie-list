@@ -26,7 +26,9 @@ class UI {
 
     filterMovie(search) {
 
-        for (let i = 0; i < this.movieCount; i++){
+        let movieCount = document.querySelectorAll("tr").length;        
+
+        for (let i = 0; i < movieCount; i++){
 
             let movieRow = document.getElementById(`${i}`);
 
@@ -36,7 +38,7 @@ class UI {
 
                 let movieTitle = movieRow.firstElementChild.textContent;
 
-                if (!movieTitle.toLowerCase().startsWith(search.toLowerCase())) {
+                if (!movieTitle.toLowerCase().includes(search.toLowerCase())) {
     
                     movieRow.classList.add("d-none");
     

@@ -33,7 +33,7 @@ async function getMovies() {
 document.getElementById("searchCriteria").addEventListener("input", (e) => {
 
     const searchFilter = document.getElementById("searchCriteria").value;
-    
+
     ui.filterMovie(searchFilter);
 
 });
