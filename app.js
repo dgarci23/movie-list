@@ -25,5 +25,5 @@ app.get('/', (req, res) => {
 
 app.post('the_trial_of_the_chicago_7', (req, res) => console.log("WORKED"));
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 
