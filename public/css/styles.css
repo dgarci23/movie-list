@@ -1,13 +1,58 @@
-/* .fa-check-square {
-    color: green;
+.table {
+    font-family: "Roboto";
+    font-weight: 400;
 }
 
-.fa-square {
-    color: red;
-} */
+td.title {
+    font-weight: 700;
+}
 
 .icon {
     height: 3px;
+    color: #314E52;
+}
+
+.header {
+    font-family: "Merriweather";
+    font-weight: 900;
+}
+
+.search {
+    padding: 3%;
+}
+
+
+.tableContainer {
+    margin-top: 10px;
+}
+
+.table-movie {
+    background-color: #E7E6E1;
+    border-radius: 5px;
+}
+
+/* Background */
+body {
+    background-color: #F7F6E7;
+}
+
+.search {
+    background-color: #F2A154;
+    border: 0;
+
+}
+
+
+/* Navegation Bar */
+.header {
+    background-color: #314E52;
+    height: 100px;
+}
+
+.form-control {
+    background-color: #F2A154;
+    border-color:#F7F6E7;
+    width: 30%;
 }
 
 @media (max-width: 567px) {

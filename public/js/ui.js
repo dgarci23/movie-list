@@ -14,7 +14,7 @@ class UI {
         }
 
         const row = `<tr id="${movie.id}">
-                        <td>${movie.title}</td>
+                        <td class="title">${movie.title}</td>
                         <td class="director">${movie.director}</td>
                         <td class="year">${movie.year}</td>
                         <td>

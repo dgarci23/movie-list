@@ -8,12 +8,18 @@
 
     <link rel="stylesheet" href="css/styles.css">
 
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/favicon">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Roboto&display=swap" rel="stylesheet">
+
     <title>Movie List</title>
+    
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-primary mb-3">
-        <div class="container">
-            <a href="#" class="navbar-brand">Movie List</a>
+    <nav class="navbar navbar-dark mb-3 header">
+        <div class="container"></div>
+            <a href="#" class="navbar-brand"><h1>Movie List</h1></a>
         </div>
     </nav>
 
@@ -23,18 +29,19 @@
             <p class="lead">Search for a movie...</p>
             <input type="text" id="searchCriteria" class="form-control" placeholder="Search">
         </div>
-        <br>
-        <table class="table">
+    </div>
+
+    <div class="tableContainer container">
+        <table class="table table-hover table-movie">
             <thead>
                 <tr>
                     <th scope="col">Title</th>
                     <th scope="col" class="director">Director</th>
                     <th scope="col" class="year">Year</th>
+                    <th scope="col">  </th>
                 </tr>
             </thead>
-            <tbody id="table-body">
-
-            </tbody>
+            <tbody id="table-body"></tbody>
         </table>
     </div>
 
