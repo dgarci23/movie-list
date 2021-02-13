@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 });
 
-
 async function getMovies() {
 
     let dataExpress = await fetch("/load");
@@ -30,6 +29,8 @@ async function getMovies() {
 
 }
 
+
+// filter movie
 document.getElementById("searchCriteria").addEventListener("input", (e) => {
 
     const searchFilter = document.getElementById("searchCriteria").value;
@@ -38,6 +39,8 @@ document.getElementById("searchCriteria").addEventListener("input", (e) => {
 
 });
 
+
+// checking movies
 document.getElementById("table-body").addEventListener("click", (e) => {
 
     if (e.target.classList.contains("icon")) {

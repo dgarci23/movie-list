@@ -3,6 +3,7 @@ class UI {
         this.table = document.getElementById('table-body');
     }
 
+    // Adds the movie to the UI
     addMovie(movie) {
 
         let iconClass;
@@ -24,6 +25,7 @@ class UI {
         this.table.innerHTML += row;
     }
 
+    // filters the movie based on a criteria
     filterMovie(search) {
 
         let movieCount = document.querySelectorAll("tr").length;        
@@ -37,8 +39,9 @@ class UI {
             } else {
 
                 let movieTitle = movieRow.firstElementChild.textContent;
+                let movieDirector = movieRow.children[1].textContent;
 
-                if (!movieTitle.toLowerCase().includes(search.toLowerCase())) {
+                if (!(movieTitle.toLowerCase().includes(search.toLowerCase()) || movieDirector.toLowerCase().includes(search.toLowerCase()))) {
     
                     movieRow.classList.add("d-none");
     
@@ -58,6 +61,7 @@ class UI {
 
     }
 
+    // switchs icon in the ui
     switchIcon(icon) {
 
         if(icon.classList.contains("fa-check-square")) {

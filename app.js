@@ -22,8 +22,6 @@ app.get('/', (req, res) => {
 // load all the movies
 app.get('/load', (req, res) => {
 
-    console.log("Trying to connect to express server");
-
     let moviesJson = fs.readFileSync("movies.json");
 
     moviesJson = JSON.parse(moviesJson);
