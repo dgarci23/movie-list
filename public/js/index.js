@@ -2,6 +2,9 @@ const ui = new UI();
 
 let movies = {};
 
+document.querySelector(".searchCol").style = `display: none;`;
+document.querySelector(".searchCol").style = `display: block;`;
+
 // Loads movies
 document.addEventListener("DOMContentLoaded", ()=>{
 

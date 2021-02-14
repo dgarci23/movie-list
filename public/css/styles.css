@@ -52,19 +52,10 @@ body {
 }
 
 /* UI */
-.form-control {
+.search-form-control {
     background-color: #F2A154;
     width: 30%;
     border-color: #F7F6E7;
-}
-
-.input-group-text {
-    border-color: #F7F6E7;
-}
-
-.input-group-text {
-    color: #314E52;
-    background-color: #F7F6E7;
 }
 
 .form-control:focus {
