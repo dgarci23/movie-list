@@ -18,16 +18,48 @@
 </head>
 <body>
     <nav class="navbar navbar-dark mb-3 header">
-        <div class="container"></div>
+        <div class="header-title container">
             <a href="#" class="navbar-brand"><h1>Movie List</h1></a>
         </div>
     </nav>
 
-    <div class="container searchContainer">
-        <div class="search card cardbody">
-            <h1>Search Movies</h1>
-            <p class="lead">Search for a movie...</p>
-            <input type="text" id="searchCriteria" class="form-control" placeholder="Search">
+    <div class="container ui">
+        <div class="row">
+            <div class="col-3">
+                <h1>Search <i class="fas fa-search"></i></h1>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchCriteria">
+                </div>
+            </div>
+            <div class="col-9">
+                <h1>Add a Movie <i class="fas fa-plus"></i></h1>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Title</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Director</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Year</span>
+                            </div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

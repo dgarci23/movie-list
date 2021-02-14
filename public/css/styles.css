@@ -12,47 +12,65 @@ td.title {
     color: #314E52;
 }
 
-.header {
-    font-family: "Merriweather";
-    font-weight: 900;
-}
-
-.search {
-    padding: 3%;
-}
-
-
-.tableContainer {
-    margin-top: 10px;
-}
-
-.table-movie {
-    background-color: #E7E6E1;
-    border-radius: 5px;
-}
-
 /* Background */
 body {
     background-color: #F7F6E7;
 }
 
-.search {
+.ui {
     background-color: #F2A154;
     border: 0;
+    padding: 3%;
+    border-radius: 7px;
+}
 
+/* Table with movies */
+.table>tbody>tr>td, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>td, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>thead>tr>th {
+  border:0;
+}
+
+.tableContainer {
+    margin-top: 10px;
+    background-color: #E7E6E1;
+    border-radius: 7px;
 }
 
 
-/* Navegation Bar */
+
+
+/* Navigation Bar */
 .header {
     background-color: #314E52;
-    height: 100px;
+    height: 150px;
+    font-family: "Merriweather";
+    font-weight: 900;
 }
 
+/* UI */
 .form-control {
     background-color: #F2A154;
-    border-color:#F7F6E7;
     width: 30%;
+    border-color: #F7F6E7;
+}
+
+.input-group-text {
+    border-color: #F7F6E7;
+}
+
+.input-group-text {
+    color: #314E52;
+    background-color: #F7F6E7;
+}
+
+.form-control:focus {
+    border-color: #F7F6E7;
+    outline: 0;
+    box-shadow: none;
 }
 
 @media (max-width: 567px) {
