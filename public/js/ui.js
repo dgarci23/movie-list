@@ -18,7 +18,7 @@ class UI {
                         <td class="director">${movie.director}</td>
                         <td class="year">${movie.year}</td>
                         <td>
-                            <a href="#" id="watch-box-${movie.id}"><i class="${iconClass} icon"></i></a>
+                            <a href="#" onclick="return false" id="watch-box-${movie.id}"><i class="${iconClass} icon"></i></a>
                         </td>
                     </tr>`;
         
@@ -71,5 +71,20 @@ class UI {
             icon.classList.add("fa-check-square");
             icon.classList.remove("fa-square");
         }
+    }
+
+    dashboard(watched, total) {
+
+        const dashboardBtn = document.querySelectorAll(".movieDashboard");
+
+        const counterBtn = dashboardBtn[0];
+        const percentageBtn = dashboardBtn[1];
+
+        counterBtn.textContent = `${watched}/${total}`;
+        
+        const percentageWatched = Math.round((watched*100/total));
+
+        percentageBtn.textContent = `${percentageWatched}%`;
+
     }
 }

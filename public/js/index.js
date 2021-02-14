@@ -2,6 +2,8 @@ const ui = new UI();
 
 let movies = {};
 
+let watched = 0;
+
 // Loads movies
 document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -13,10 +15,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
         movies = moviesData;
         
-        moviesData.forEach(movie => ui.addMovie(movie));
+        moviesData.forEach(movie => {
+            ui.addMovie(movie);
+
+            if (movie.watchDavid === true) {
+                watched++;
+            }
+        });
+
+        ui.dashboard(watched, movies.length);
 
     });
-
 });
 
 async function getMovies() {
@@ -60,9 +69,11 @@ document.getElementById("table-body").addEventListener("click", (e) => {
         const editResponse = editMovies(movies);
         
         editResponse.then(res => console.log(res));
+
+        e.target.classList.contains("fa-square") ? watched-- : watched++;
+        ui.dashboard(watched, movies.length);
     }
 
-    e.target.parentNode.preventDefault();
 });
 
 async function editMovies(movies) {
@@ -107,6 +118,10 @@ function addMovie() {
     movieAddedResponse.then(data => {
         
         ui.addMovie(data);
+
+        movies.push(data);
+
+        ui.dashboard(watched, movies.length);
 
     });
     
