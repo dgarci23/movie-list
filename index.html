@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/favicon">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Roboto&display=swap" rel="stylesheet">
 
     <title>Movie List</title>
     
@@ -26,28 +26,31 @@
     <div class="container ui">
         <div class="row">
             <div class="col-3">
-                <h1>Search <i class="fas fa-search fa-xs"></i></h1>
                 <div class="input-group search-input-group">
-                    <input type="text" class="form-control search-form-control" id="searchCriteria">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text search-input-group-text"><i class='fas fa-search fa-xs'></i></span>
+                    </div>
+                    <input type="text" class="form-control search-form-control" id="searchCriteria" placeholder="Search">
                 </div>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary" id="btnAddModal" data-toggle="modal" data-target="#addModal">
+                    Add Movie
+                </button>
             </div>
         </div>
     </div>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
+          <div class="modal-content addModal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add the new movie information</h5>
+              <h5 class="modal-title" id="addModalLabel">Add the new movie information</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body addModal-body">
               <form action="">
                   <div class="form-group">
                       <label for="movieTitleInput">Title</label>
@@ -64,8 +67,8 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="btnAddMovie">Add Movie</button>
+              <button type="button" class="btn btn-secondary btnModalClose" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary btnModalAddMovie" id="btnAddMovie">Add Movie</button>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 .table {
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
 }
 
@@ -17,12 +17,6 @@ body {
     background-color: #F7F6E7;
 }
 
-.ui {
-    background-color: #F2A154;
-    border: 0;
-    padding: 3%;
-    border-radius: 7px;
-}
 
 /* Table with movies */
 .table>tbody>tr>td, 
@@ -38,30 +32,93 @@ body {
     margin-top: 10px;
     background-color: #E7E6E1;
     border-radius: 7px;
+    padding: 30px 25px 30px 25px;
 }
-
-
 
 
 /* Navigation Bar */
 .header {
     background-color: #314E52;
     height: 150px;
-    font-family: "Merriweather";
+    font-family: "Merriweather", serif;
     font-weight: 900;
 }
 
+.header-title {
+    padding-left: 40px;
+}
+
 /* UI */
+
+.ui {
+    padding: 3% 38px 3% 38px;
+    background-color: #F2A154;
+    border: 0;
+    border-radius: 7px;
+}
+
+/* Search */
 .search-form-control {
     background-color: #F2A154;
     width: 30%;
     border-color: #F7F6E7;
+    color:#314E52;
 }
 
-.form-control:focus {
+.search-form-control:focus {
+    color: #314E52;
     border-color: #F7F6E7;
     outline: 0;
     box-shadow: none;
+}
+
+.search-input-group-text{
+    border-color: #F7F6E7;
+    background-color: #F7F6E7;
+}
+
+.fa-search {
+    color: #314E52;
+}
+
+/* Add Movie - Modal */
+#btnAddModal {
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+    width: 100%;
+
+    font-size: 20px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+
+    border-radius: 0.5rem;
+
+    background-color: #f7f6e7;
+    color: #314E52;
+    border-color: #f7f6e7;
+}
+
+#addModal {
+    
+}
+
+.addModal-content {
+    background-color: #F7F6E7;
+}
+
+.addModal-body {
+    background-color: #E7E6E1;
+}
+
+.btnModalAddMovie {
+    background-color: #F2A154;
+    border-color: #314E52;
+    font-family: "Lato";
+}
+
+.btnModalClose {
+    font-family: "Lato";
 }
 
 @media (max-width: 567px) {
