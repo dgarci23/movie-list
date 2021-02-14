@@ -10,7 +10,6 @@ const app = express();
 // node configuration
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
-app.set("view engine", "ejs");
 
 // home page
 app.get('/', (req, res) => {
@@ -39,6 +38,28 @@ app.post("/edit", (req, res) => {
     res.send(JSON.stringify({body: "Success"}));
 })
 
+app.post("/add", (req, res) => {
+
+    let moviesJson = fs.readFileSync("movies.json");
+
+    moviesJson = JSON.parse(moviesJson);    
+
+    const newMovie = {
+        id: moviesJson[moviesJson.length - 1].id + 1,
+        title: req.body.title,
+        director: req.body.director,
+        year: req.body.year,
+        watchDavid: false,
+        watchDaniela: false,
+        tags: []
+    };
+
+    moviesJson.push(newMovie);
+
+    fs.writeFile("movies.json", JSON.stringify(moviesJson), () => console.log("Movie added to file"));
+
+    res.send(JSON.stringify(newMovie));
+})
 
 // listen
 app.listen(process.env.PORT || 3000, () => console.log("Server connected."));

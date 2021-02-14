@@ -2,9 +2,6 @@ const ui = new UI();
 
 let movies = {};
 
-document.querySelector(".searchCol").style = `display: none;`;
-document.querySelector(".searchCol").style = `display: block;`;
-
 // Loads movies
 document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -78,6 +75,52 @@ async function editMovies(movies) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(movies)
+    });
+
+    const resData = await response.json();
+    return resData;
+
+}
+
+// adding a new movie
+document.getElementById("btnAddMovie").addEventListener("click", addMovie);
+
+function addMovie() {
+
+    console.log("Button clicked");
+
+    const title = document.getElementById("movieTitleInput").value;
+    const director = document.getElementById("movieDirectorInput").value;
+    const year = document.getElementById("movieYearInput").value;
+
+    const newMovie = {
+        title: title,
+        director: director,
+        year: year
+    };
+    
+    // Send movie to server
+    const movieAddedResponse = sendMoviesToServer(newMovie);
+
+    let movieAdded = {};
+
+    movieAddedResponse.then(data => {
+        
+        ui.addMovie(data);
+
+    });
+    
+
+}
+
+async function sendMoviesToServer(newMovie) {
+
+    const response = await fetch("/add", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newMovie)
     });
 
     const resData = await response.json();
