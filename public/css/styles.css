@@ -35,10 +35,6 @@ body {
     padding: 30px 25px 30px 25px;
 }
 
-.fa-times-circle {
-    
-}
-
 
 /* Navigation Bar */
 .header {
@@ -60,6 +56,10 @@ body {
     border: 0;
     border-radius: 7px;
     margin: 170px auto 30px auto;
+}
+
+.uiElement {
+    margin: 10px auto;
 }
 
 /* Search */

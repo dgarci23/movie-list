@@ -21,7 +21,7 @@ class UI {
                             <a href="#" onclick="return false" id="watch-box-${movie.id}"><i class="${iconClass} icon checkIcon"></i></a>
                         </td>
                         <td>
-                            <a href="#" onclick="return false" id="remove-${movie.id}"><i class="fas fa-times-circle fa-lg text-danger icon deleteIcon"></i></a>    
+                            <a href="#" onclick="return false" id="remove-${movie.id}"><i class="fas fa-trash fa-lg text-danger icon deleteIcon"></i></a>    
                         </td>
                     </tr>`;
         
