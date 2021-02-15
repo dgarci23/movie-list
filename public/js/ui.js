@@ -18,7 +18,10 @@ class UI {
                         <td class="director">${movie.director}</td>
                         <td class="year">${movie.year}</td>
                         <td>
-                            <a href="#" onclick="return false" id="watch-box-${movie.id}"><i class="${iconClass} icon"></i></a>
+                            <a href="#" onclick="return false" id="watch-box-${movie.id}"><i class="${iconClass} icon checkIcon"></i></a>
+                        </td>
+                        <td>
+                            <a href="#" onclick="return false" id="remove-${movie.id}"><i class="fas fa-times-circle fa-lg text-danger icon deleteIcon"></i></a>    
                         </td>
                     </tr>`;
         
@@ -85,6 +88,14 @@ class UI {
         const percentageWatched = Math.round((watched*100/total));
 
         percentageBtn.textContent = `${percentageWatched}%`;
+
+    }
+
+    deleteMovie(id){
+
+        const deleteRow = document.getElementById(id);
+
+        deleteRow.remove();
 
     }
 }

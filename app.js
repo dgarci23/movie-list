@@ -3,6 +3,7 @@ const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const https = require("https");
+const { type } = require('os');
 
 // Start express app
 const app = express();
@@ -59,6 +60,22 @@ app.post("/add", (req, res) => {
     fs.writeFile("movies.json", JSON.stringify(moviesJson), () => console.log("Movie added to file"));
 
     res.send(JSON.stringify(newMovie));
+})
+
+app.post("/delete", (req, res) => {
+
+    let moviesJson = fs.readFileSync("movies.json");
+    moviesJson = JSON.parse(moviesJson);
+
+    const deleteId = req.body.id;
+
+    let remainMovies = moviesJson.filter((movie) => {
+        return movie.id != deleteId;
+    });
+
+    fs.writeFile("movies.json", JSON.stringify(remainMovies), () => console.log("Movie removed"));
+
+    res.send(JSON.stringify({status: "success"}));
 })
 
 // listen

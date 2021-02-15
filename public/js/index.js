@@ -52,7 +52,7 @@ document.getElementById("searchCriteria").addEventListener("input", (e) => {
 // checking movies
 document.getElementById("table-body").addEventListener("click", (e) => {
 
-    if (e.target.classList.contains("icon")) {
+    if (e.target.classList.contains("checkIcon")) {
 
         ui.switchIcon(e.target);
 
@@ -136,6 +136,38 @@ async function sendMoviesToServer(newMovie) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(newMovie)
+    });
+
+    const resData = await response.json();
+    return resData;
+
+}
+
+// deleting a new movie
+document.getElementById("table-body").addEventListener("click", (e) => {
+
+    const deleteId = e.target.parentNode.parentNode.parentNode.id;
+
+    const deleteResponse = deleteMoviesFromServer(deleteId);
+
+    deleteResponse.then(res => {
+
+        console.log(res);
+
+        ui.deleteMovie(deleteId);
+
+    });
+
+});
+
+async function deleteMoviesFromServer(id) {
+
+    const response = await fetch("/delete", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({id: id})
     });
 
     const resData = await response.json();
