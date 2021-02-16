@@ -146,18 +146,20 @@ async function sendMoviesToServer(newMovie) {
 // deleting a new movie
 document.getElementById("table-body").addEventListener("click", (e) => {
 
-    const deleteId = e.target.parentNode.parentNode.parentNode.id;
+    if (e.target.classList.contains("deleteIcon")) {
+        const deleteId = e.target.parentNode.parentNode.parentNode.id;
 
-    const deleteResponse = deleteMoviesFromServer(deleteId);
-
-    deleteResponse.then(res => {
-
-        console.log(res);
-
-        ui.deleteMovie(deleteId);
-
-    });
-
+        const deleteResponse = deleteMoviesFromServer(deleteId);
+    
+        deleteResponse.then(res => {
+    
+            console.log(res);
+    
+            ui.deleteMovie(deleteId);
+    
+        });
+    
+    }
 });
 
 async function deleteMoviesFromServer(id) {
