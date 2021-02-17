@@ -174,5 +174,65 @@ async function deleteMoviesFromServer(id) {
 
     const resData = await response.json();
     return resData;
-
+    
 }
+
+// Filter movies
+document.querySelector(".table-movie").addEventListener("click", (e) => {
+
+    if (e.target.classList.contains("fa-sort-amount-down")){
+        let moviesSort = Array.from(movies);
+
+        moviesSort.sort(yearSortDown());
+
+        document.getElementById("table-body").innerHTML = "";
+
+        moviesSort.forEach((movie) => {
+            ui.addMovie(movie);
+        })
+
+        e.target.classList.remove("fa-sort-amount-down");
+        e.target.classList.add("fa-sort-amount-up");
+    } else if(e.target.classList.contains("fa-sort-amount-up")) {
+        let moviesSort = Array.from(movies);
+
+        moviesSort.sort(yearSortUp());
+
+        document.getElementById("table-body").innerHTML = "";
+
+        moviesSort.forEach((movie) => {
+            ui.addMovie(movie);
+        })
+
+        e.target.classList.remove("fa-sort-amount-up");
+        e.target.classList.add("fa-sort-amount-down");
+    }
+});
+
+
+// console.log(movies);
+
+function yearSortDown(){
+    return function(a, b) {
+        if (a.year > b.year) {
+            return 1;
+        } else if (a.year < b.year) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+}
+
+function yearSortUp(){
+    return function(a, b) {
+        if (a.year > b.year) {
+            return -1;
+        } else if (a.year < b.year) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+}
+
