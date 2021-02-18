@@ -143,6 +143,10 @@ body {
         display: none;
     }
 
+    .sortIcon {
+        display: none;
+    }
+
 }
 
 @media (min-width: 567px) {
