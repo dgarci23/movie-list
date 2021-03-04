@@ -13,15 +13,15 @@ class UI {
             iconClass = "fas fa-lg fa-check-square";
         }
 
-        const row = `<tr id="${movie.id}">
+        const row = `<tr id="${movie._id}">
                         <td class="title">${movie.title}</td>
                         <td class="director">${movie.director}</td>
                         <td class="year">${movie.year}</td>
                         <td>
-                            <a href="#" onclick="return false" id="watch-box-${movie.id}"><i class="${iconClass} icon checkIcon"></i></a>
+                            <a href="#" onclick="return false" id="watch-box-${movie._id}"><i class="${iconClass} icon checkIcon"></i></a>
                         </td>
                         <td>
-                            <a href="#" onclick="return false" id="remove-${movie.id}"><i class="fas fa-trash fa-lg text-danger icon deleteIcon"></i></a>    
+                            <a href="#" onclick="return false" id="remove-${movie._id}"><i class="fas fa-trash fa-lg text-danger icon deleteIcon"></i></a>    
                         </td>
                     </tr>`;
         
@@ -31,11 +31,12 @@ class UI {
     // filters the movie based on a criteria
     filterMovie(search) {
 
-        let movieCount = document.querySelectorAll("tr").length;        
+        let movies = document.querySelectorAll("tr");
+        let movieCount = movies.length;        
 
         for (let i = 0; i < movieCount; i++){
 
-            let movieRow = document.getElementById(`${i}`);
+            let movieRow = movies[i];
 
             if (movieRow === null) {
                 continue;

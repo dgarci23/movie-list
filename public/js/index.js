@@ -57,35 +57,33 @@ document.getElementById("table-body").addEventListener("click", (e) => {
         ui.switchIcon(e.target);
 
         const idChangedIcon = e.target.parentNode.parentNode.parentNode.id;
+        
+        console.log(idChangedIcon);
 
         movies.forEach((movie) => {
     
-            if (movie.id == idChangedIcon) {
+            if (movie._id == idChangedIcon) {
                 movie.watchDavid = !(movie.watchDavid);
-            }
-    
-        });
-
-        const editResponse = editMovies(movies);
+                const editResponse = editMovies(movie._id, movie.watchDavid);
+                editResponse.then(res => console.log(res));
         
-        editResponse.then(res => console.log(res));
-
-        e.target.classList.contains("fa-square") ? watched-- : watched++;
-        ui.dashboard(watched, movies.length);
+                e.target.classList.contains("fa-square") ? watched-- : watched++;
+                ui.dashboard(watched, movies.length);
+            }
+        });
     }
-
 });
 
-async function editMovies(movies) {
+async function editMovies(id, status) {
 
     // console.log(movies);
 
-    const response = await fetch("/edit", {
+    const response = await fetch(`/edit`, {
         method: "POST",
         headers : {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(movies)
+        body: JSON.stringify({id: id, status: status})
     });
 
     const resData = await response.json();
