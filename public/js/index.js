@@ -154,6 +154,8 @@ document.getElementById("table-body").addEventListener("click", (e) => {
             console.log(res);
     
             ui.deleteMovie(deleteId);
+
+            ui.dashboard(watched, movies.length);
     
         });
     
