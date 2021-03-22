@@ -98,15 +98,19 @@ function addMovie() {
 
     console.log("Button clicked");
 
-    const title = document.getElementById("movieTitleInput").value;
-    const director = document.getElementById("movieDirectorInput").value;
-    const year = document.getElementById("movieYearInput").value;
+    let title = document.getElementById("movieTitleInput").value;
+    let director = document.getElementById("movieDirectorInput").value;
+    let year = document.getElementById("movieYearInput").value;
 
     const newMovie = {
         title: title,
         director: director,
         year: year
     };
+
+    title = "";
+    director = "";
+    year = "";
     
     // Send movie to server
     const movieAddedResponse = sendMoviesToServer(newMovie);
