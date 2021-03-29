@@ -1,2 +1,2 @@
 ## TODO
-[ ] Refactor `app.js` code to reduce unused libraries
+- [x] Refactor `app.js` code to reduce unused libraries
