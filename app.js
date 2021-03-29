@@ -1,11 +1,7 @@
 require("dotenv").config();
 // Add node modules
-const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
-const https = require("https");
-const { type } = require('os');
-
 const mongoose = require("mongoose");
 
 
@@ -15,8 +11,6 @@ const app = express();
 // node configuration
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
-
-console.log(process.env.DB_PASSWORD);
 
 mongoose.connect(`mongodb+srv://dgarci23:${process.env.DB_PASSWORD}@cluster0.vovxs.mongodb.net/Movies?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true});
 
